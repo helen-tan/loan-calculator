@@ -1,8 +1,19 @@
 // Listen for submit
-document.getElementById('loan-form').addEventListener('submit', calculateResults);
+document.getElementById('loan-form').addEventListener('submit', function(e){
+    // Delay calling the calculateResults function - to show loading gif
+    // Hide Results
+    document.getElementById('results').style.display = 'none';
+    
+    // Show loader
+    document.getElementById('loading').style.display = 'block';
 
-// Calculate Results (Event Handler)
-function calculateResults(e){
+    setTimeout(calculateResults, 2000);
+
+    e.preventDefault();
+});
+
+// Calculate Results 
+function calculateResults(){
     console.log('Calculating...');
     // UI vars (to point to the input)
     const amount = document.getElementById('amount');
@@ -24,17 +35,26 @@ function calculateResults(e){
         monthlyPayment.value = monthly.toFixed(2); // toFixed to set the no. of decimals
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+
+        // Show Results
+        document.getElementById('results').style.display = 'block';
+        // Hide Loader gif
+        document.getElementById('loading').style.display = 'none';
     } else {
         showError('Please check your numbers');
         // we can put a div and hide it and show it when needed
         // or we can built the alert from javascript using createElement fromt the document object (better)
     }
-
-    e.preventDefault();
 }
 
 // Show error
 function showError(errorMsg){
+    // Hide Results
+    document.getElementById('results').style.display = 'none';
+    // Hide Loader gif
+    document.getElementById('loading').style.display = 'none';
+
+
     // Create a div
     const errorDiv = document.createElement('div');
 
