@@ -12,15 +12,22 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <title>Hello, world!</title>
+    <title>Loan Calculator</title>
 </head>
 
 <body class="bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto">
+            <div class="col-sm-12 col-md-6 ">
                 <div class="card card-body text-center mt-5">
                     <h1 class="heading display-5 pb-3">Loan Calculator</h1>
+
+                    <div class="card-panel">
+                        <p class="flow-text">
+                        Use this calculator to calculate your monthly repayment amount based on your Loan amount, 
+                        Interest rate and Loan tenure (in years).
+                        </p>
+                     </div>
 
                     <form id="loan-form">
                         <div class="form-group mb-3">
@@ -33,7 +40,7 @@
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <span class="input-group-text">%</span>
-                                <input type="number" class="form-control" id="interest" placeholder="Interest">
+                                <input type="number" class="form-control" id="interest" placeholder="Annual Interest Rate">
                             </div>
                         </div>
 
@@ -78,6 +85,24 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="card card-body mt-5">
+                    <h2 class="display-40 pb-3 left-align">Calculator Use</h2>
+                    <div class="card-panel">
+                        <p class="flow-text">
+                        When taking a loan, the lender is expected to eventually pay back the 
+                        loan plus the interest by regular payments to the lending institution, 
+                        such as a bank. Your monthly payment for a loan will depend on the amount, 
+                        interest rate and term of the loan. <br/><br/>
+
+                        This calculator uses the formula for the <a href="https://www.investopedia.com/terms/p/present-value-annuity.asp">Present Value of Ordinary Annuity</a>:
+                        </p>
+                     </div>
+                     <img id='formula' src="img/formula.PNG" style="width:300px;height:auto;text-align:center;">
+
+                </div>
+
             </div>
         </div>
     </div>
